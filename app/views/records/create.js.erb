@@ -1,0 +1,11 @@
+var records = document.querySelector("#records");
+
+var oldRow = document.querySelector("#record-<%= @record.number %>");
+if(oldRow) {
+  records.deleteRow(oldRow.rowIndex);
+}
+
+var newRow = records.insertRow(1);
+newRow.id = "record-<%= @record.number %>";
+newRow.innerHTML = "<%= j render(@record) %>";
+

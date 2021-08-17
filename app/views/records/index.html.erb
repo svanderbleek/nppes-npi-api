@@ -1,0 +1,35 @@
+<h2>NPPES Data</h3>
+
+<h3>NPPES NPI Registry</h3>
+<%= form_with(local: false) do |form| %>
+  <%= form.label :number, "NPI" %>
+  <%= form.text_field :number %>
+  <%= form.submit "Query Record" %>
+<% end %>
+
+<h3>Records</h3>
+
+<% if @records.any? %>
+<table id="records">
+  <thead>
+    <tr>
+      <th>NPI</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Type</th>
+      <th>Taxonomy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @records.each do |record| %>
+    <tr id="record-<%= record.number %>">
+      <%= render record %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>No records.</p>
+<% end %>
