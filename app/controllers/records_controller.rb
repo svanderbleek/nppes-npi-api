@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
       @record.touch
     else
       data = NppesApi.query(params[:number])
-      @record = NppesDataAdapter.record_from(data)
+      @record = NppesDataAdapter.record_from(params[:number], data)
     end
   end
 end

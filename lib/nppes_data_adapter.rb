@@ -1,10 +1,10 @@
 class NppesDataAdapter
 
-  def self.record_from(data)
+  def self.record_from(number, data)
     if data
       Record.create(model_fields(data))
     else
-      Record.create(number: params[:number])
+      Record.create(number: number)
     end
   end
 
