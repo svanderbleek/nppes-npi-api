@@ -1,5 +1,4 @@
 class NppesDataAdapter
-
   def self.record_from(number, data)
     if data
       Record.create(model_fields(data))
